@@ -1,7 +1,6 @@
-// import SingleBook from "./modules/SingleBook.js";
 import newBooks from './modules/Collection.js';
+import display from './modules/Display.js';
 
-const displaySection = document.querySelector('[data-display]');
 const addBtn = document.querySelector('button');
 const title = document.querySelector('[data-title]');
 const author = document.querySelector('[data-author]');
@@ -12,6 +11,7 @@ const contact = document.querySelector('[data-contact]');
 const bookList = document.querySelector('[data-book-list]');
 const addBook = document.querySelector('[data-add-book]');
 const contactInfo = document.querySelector('[data-contact-info]');
+const dateTime = document.querySelector('.date');
 
 // class SingleBook {
 //   constructor(title, author) {
@@ -48,28 +48,28 @@ const contactInfo = document.querySelector('[data-contact-info]');
 
 // const newBooks = new Collection();
 
-const display = () => {
-  const { bookCollection } = newBooks;
-  displaySection.innerHTML = '';
-  for (let i = 0; i < bookCollection.length; i += 1) {
-    const book = document.createElement('article');
-    const bookDetails = bookCollection[i];
-    book.className = 'displayed-book';
-    if (i % 2 !== 0) {
-      book.classList.add('light-background');
-    }
-    book.innerHTML = `<div>${bookDetails.title} by ${bookDetails.author}</div>`;
-    const removeBtn = document.createElement('button');
-    removeBtn.innerHTML = 'Remove';
-    removeBtn.className = 'remove';
-    removeBtn.addEventListener('click', () => {
-      newBooks.removeBook(i);
-      display();
-    });
-    book.appendChild(removeBtn);
-    displaySection.appendChild(book);
-  }
-};
+// const display = () => {
+//   const { bookCollection } = newBooks;
+//   displaySection.innerHTML = '';
+//   for (let i = 0; i < bookCollection.length; i += 1) {
+//     const book = document.createElement('article');
+//     const bookDetails = bookCollection[i];
+//     book.className = 'displayed-book';
+//     if (i % 2 !== 0) {
+//       book.classList.add('light-background');
+//     }
+//     book.innerHTML = `<div>${bookDetails.title} by ${bookDetails.author}</div>`;
+//     const removeBtn = document.createElement('button');
+//     removeBtn.innerHTML = 'Remove';
+//     removeBtn.className = 'remove';
+//     removeBtn.addEventListener('click', () => {
+//       newBooks.removeBook(i);
+//       display();
+//     });
+//     book.appendChild(removeBtn);
+//     displaySection.appendChild(book);
+//   }
+// };
 
 display();
 
@@ -102,7 +102,7 @@ contact.addEventListener('click', () => {
   addBook.style.display = 'none';
 });
 
-const dateTime = document.querySelector('.date');
+
 const date = new Date();
 const dateNow = date.toDateString();
 const timeNow = date.toLocaleTimeString();
