@@ -23,6 +23,6 @@ const display = () => {
     book.appendChild(removeBtn);
     displaySection.appendChild(book);
   }
-}
+};
 
 export default display;

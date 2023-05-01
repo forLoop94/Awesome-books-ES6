@@ -1,5 +1,6 @@
 import newBooks from './modules/Collection.js';
 import display from './modules/Display.js';
+import { DateTime } from './node_modules/luxon/src/luxon.js';
 
 const addBtn = document.querySelector('button');
 const title = document.querySelector('[data-title]');
@@ -12,64 +13,6 @@ const bookList = document.querySelector('[data-book-list]');
 const addBook = document.querySelector('[data-add-book]');
 const contactInfo = document.querySelector('[data-contact-info]');
 const dateTime = document.querySelector('.date');
-
-// class SingleBook {
-//   constructor(title, author) {
-//     this.title = title;
-//     this.author = author;
-//   }
-// }
-
-// class Collection {
-//   constructor() {
-//     this.bookCollection = [];
-//     this.getBooksFromLocalStorage();
-//   }
-
-//   addBook(title, author) {
-//     const newBook = new SingleBook(title, author);
-//     this.bookCollection = this.bookCollection.concat(newBook);
-//     localStorage.setItem('books', JSON.stringify(this.bookCollection));
-//   }
-
-//   removeBook(i) {
-//     this.bookCollection.splice(i, 1);
-//     localStorage.setItem('books', JSON.stringify(this.bookCollection));
-//   }
-
-//   getBooksFromLocalStorage() {
-//     const books = localStorage.getItem('books');
-//     const allBooks = JSON.parse(books);
-//     if (books) {
-//       this.bookCollection = allBooks;
-//     }
-//   }
-// }
-
-// const newBooks = new Collection();
-
-// const display = () => {
-//   const { bookCollection } = newBooks;
-//   displaySection.innerHTML = '';
-//   for (let i = 0; i < bookCollection.length; i += 1) {
-//     const book = document.createElement('article');
-//     const bookDetails = bookCollection[i];
-//     book.className = 'displayed-book';
-//     if (i % 2 !== 0) {
-//       book.classList.add('light-background');
-//     }
-//     book.innerHTML = `<div>${bookDetails.title} by ${bookDetails.author}</div>`;
-//     const removeBtn = document.createElement('button');
-//     removeBtn.innerHTML = 'Remove';
-//     removeBtn.className = 'remove';
-//     removeBtn.addEventListener('click', () => {
-//       newBooks.removeBook(i);
-//       display();
-//     });
-//     book.appendChild(removeBtn);
-//     displaySection.appendChild(book);
-//   }
-// };
 
 display();
 
@@ -102,9 +45,4 @@ contact.addEventListener('click', () => {
   addBook.style.display = 'none';
 });
 
-
-const date = new Date();
-const dateNow = date.toDateString();
-const timeNow = date.toLocaleTimeString();
-const finalDateTime = dateNow.concat(', ', timeNow);
-dateTime.innerHTML = finalDateTime;
+dateTime.textContent = DateTime.now().toLocaleString(DateTime.DATETIME_MED);
