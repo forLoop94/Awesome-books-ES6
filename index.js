@@ -1,7 +1,5 @@
 // import SingleBook from "./modules/SingleBook.js";
-import { newBooks } from "./modules/Collection.js";
-
-
+import newBooks from './modules/Collection.js';
 
 const displaySection = document.querySelector('[data-display]');
 const addBtn = document.querySelector('button');

@@ -1,4 +1,4 @@
-import SingleBook from "./SingleBook.js";
+import SingleBook from './SingleBook.js';
 
 class Collection {
   constructor() {
@@ -26,4 +26,5 @@ class Collection {
   }
 }
 
-export const newBooks = new Collection();
+const newBooks = new Collection();
+export default newBooks;
